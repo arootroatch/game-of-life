@@ -1,9 +1,9 @@
 (ns game-of-life.core)
 
 (defn get-neighbors-of [[x y]]
-  #{[(dec x) (dec y)] [x (dec y)] [(inc x) (dec y)]
-    [(dec x) y] [(inc x) y]
-    [(dec x) (inc y)] [x (inc y)] [(inc x) (inc y)]})
+  (set (for [Y [(dec y) y (inc y)]
+             X [(dec x) x (inc x)]
+             :when (not= [x y] [X Y])] [X Y])))
 
 (defn evolve-cell [grid cell]
     (let [neighbors (get-neighbors-of cell)
