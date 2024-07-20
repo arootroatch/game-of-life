@@ -56,5 +56,9 @@
     (it "gets neighbors of a cell"
       (should= #{[-1 -1] [0 -1] [1 -1]
                  [-1 0] [1 0]
-                 [-1 1] [0 1] [1 1]} (get-neighbors-of [0 0])))
+                 [-1 1] [0 1] [1 1]} (get-neighbors-of [0 0]))
+      (should= #{[0 0] [1 0] [2 0]
+                 [0 1] [2 1]
+                 [0 2] [1 2] [2 2]}
+               (get-neighbors-of [1 1])))
     ))
